@@ -19,6 +19,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
+// Trust proxy - Required for Replit and other proxy environments
+// This allows rate limiting and other middleware to work correctly
+app.set('trust proxy', 1);
+
 /**
  * MIDDLEWARE CONFIGURATION
  * Order matters! These are applied in sequence to every request.
